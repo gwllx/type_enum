@@ -1,7 +1,11 @@
 [package]
 name = "type-enum"
 version = "0.0.1"
+description = "A macro to help build simple Typestate APIs."
+repository = "https//github.com/gwllx/type_enum"
+license = "MIT"
+readme = "README.md"
 authors = ["Gareth Williamson <gwllx.dev@gmail.com>"]
+keywords = ["typestate"]
+categories = ["rust-patterns"]
 edition = "2021"
-
-[dependencies]

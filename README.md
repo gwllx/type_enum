@@ -6,10 +6,12 @@ APIs.
 ## Example
 
 The following example defines a trait ``State`` and 3 zero-sized types which
-implement it: ``Ready``, ``Working``, and ``Complete``.
+implement it: ``Ready``, ``Working``, and ``Complete``. The types can then be
+used to build simple Typestate APIs.
 
 ```rust
 use type_enum::type_enum;
+use std::marker::PhantomData;
 
 type_enum! {
     pub State {
@@ -18,11 +20,7 @@ type_enum! {
         Complete
     }
 }
-```
 
-The types can then be used to build simple Typestate APIs:
-
-```rust
 struct Action<S: State>(PhantomData<S>);
 
 impl<S: State> Action<S> {

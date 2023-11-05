@@ -1,35 +1,5 @@
 #![doc = include_str!("../README.md")]
 /// Provides zero-sized types which implement a common trait.
-/// 
-/// For example:
-/// 
-/// ```
-/// use type_enum::type_enum;
-/// 
-/// type_enum! {
-///     pub State {
-///         Ready,
-///         Working,
-///         Complete
-///     }
-/// }
-/// ```
-/// 
-/// Expands to:
-/// 
-/// ```
-/// pub trait State {}
-/// 
-/// pub struct Ready {}
-/// impl State for Ready {}
-/// 
-/// pub struct Working {}
-/// impl State for Working {}
-/// 
-/// pub struct Complete {}
-/// impl State for Complete {}
-/// ```
-/// 
 #[macro_export]
 macro_rules! type_enum {
     (@elem
@@ -97,14 +67,13 @@ mod test {
     use std::marker::PhantomData;
 
     type_enum! {
-        State {
+        pub State {
             Ready,
             Working,
             Complete
         }
     }
 
-    /// Provides a simple Typestate-like struct for testing.
     struct Action<S: State>(PhantomData<S>);
 
     impl<S: State> Action<S> {
@@ -124,6 +93,8 @@ mod test {
             Action::new()
         }
     }
+
+    impl Action<Complete> {}
 
     #[test]
     fn test_type_enum() {
