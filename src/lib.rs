@@ -1,7 +1,7 @@
 #![doc = include_str!("../README.md")]
 /// Provides zero-sized types which implement a common trait.
 #[macro_export]
-macro_rules! type_enum {
+macro_rules! typestate_enum {
     (@elem
         $vis:vis $name:ident {
             $(#[$meta:meta])*
@@ -12,13 +12,13 @@ macro_rules! type_enum {
             ),+
         }
     ) => {
-        type_enum!(@elem
+        typestate_enum!(@elem
             $vis $name {
                 $(#[$meta])*
                 $elem
             }
         );
-        type_enum!(@elem
+        typestate_enum!(@elem
             $vis $name {
                 $(
                     $(#[$tail_meta])*
@@ -50,7 +50,7 @@ macro_rules! type_enum {
         $(#[$outer_meta])*
         $vis trait $name {}
 
-        type_enum!(@elem
+        typestate_enum!(@elem
             $vis $name {
                 $(
                     $(#[$inner_meta])*
@@ -63,10 +63,10 @@ macro_rules! type_enum {
 
 #[cfg(test)]
 mod test {
-    use super::type_enum;
+    use super::typestate_enum;
     use std::marker::PhantomData;
 
-    type_enum! {
+    typestate_enum! {
         pub State {
             Ready,
             Working,
@@ -97,7 +97,7 @@ mod test {
     impl Action<Complete> {}
 
     #[test]
-    fn test_type_enum() {
+    fn test_typestate_enum() {
         let ready_action = Action::<Ready>::new();
         let working_action = ready_action.start_work();
         working_action.complete_work();

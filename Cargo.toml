@@ -1,5 +1,5 @@
 [package]
-name = "type-enum"
+name = "typestate_enum"
 version = "0.0.1"
 description = "A macro to help build simple Typestate APIs."
 repository = "https://github.com/gwllx/type_enum"

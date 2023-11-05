@@ -1,4 +1,4 @@
-# type_enum
+# typestate_enum
 
 A Rust macro to help build simple Typestate APIs.
 
@@ -9,10 +9,10 @@ implement it: ``Ready``, ``Working``, and ``Complete``. The types can then be
 used to build simple Typestate APIs.
 
 ```rust
-use type_enum::type_enum;
+use typestate_enum::typestate_enum;
 use std::marker::PhantomData;
 
-type_enum! {
+typestate_enum! {
     pub State {
         Ready,
         Working,
