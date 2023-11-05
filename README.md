@@ -1,7 +1,6 @@
 # type_enum
 
-A Rust macro to generate zero-sized types with a common trait for Typestate
-APIs.
+A Rust macro to help build simple Typestate APIs.
 
 ## Example
 
