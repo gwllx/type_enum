@@ -1,6 +1,4 @@
-//! This crate provides a simple rust macro to generate zero-sized types with
-//! a common trait for Typestate APIs.
-
+#![doc = include_str!("../README.md")]
 /// Provides zero-sized types which implement a common trait.
 /// 
 /// For example:
