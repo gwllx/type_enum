@@ -1,0 +1,7 @@
+[package]
+name = "type-enum"
+version = "0.0.1"
+authors = ["Gareth Williamson <gwllx.dev@gmail.com>"]
+edition = "2021"
+
+[dependencies]
