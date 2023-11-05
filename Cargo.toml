@@ -1,8 +1,8 @@
 [package]
-name = "typestate_enum"
+name = "typestate-enum"
 version = "0.0.1"
 description = "A macro to help build simple Typestate APIs."
-repository = "https://github.com/gwllx/type_enum"
+repository = "https://github.com/gwllx/typestate-enum"
 license = "MIT"
 readme = "README.md"
 authors = ["Gareth Williamson <gwllx.dev@gmail.com>"]

@@ -1,4 +1,4 @@
-# typestate_enum
+# typestate-enum
 
 A Rust macro to help build simple Typestate APIs.
 
